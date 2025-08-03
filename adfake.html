@@ -30,28 +30,27 @@
             flex: 1 0 auto;
         }
 
-        /* Header */
+        /* Header and Navigation */
         header {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
+            padding: 1rem 0;
         }
 
-        nav {
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 20px;
+            padding: 0 20px;
         }
 
         .logo {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: bold;
             color: #667eea;
             text-decoration: none;
@@ -59,59 +58,130 @@
 
         .nav-links {
             display: flex;
-            list-style: none;
             gap: 2rem;
+            align-items: center;
         }
 
         .nav-links a {
-            text-decoration: none;
             color: #333;
+            text-decoration: none;
+            font-weight: 500;
             transition: color 0.3s;
+            font-size: 1rem;
         }
 
         .nav-links a:hover {
             color: #667eea;
         }
 
-        /* Dropdown styles */
-        .dropdown {
-            position: relative;
-            display: inline-block;
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+            align-items: center;
         }
 
-        .dropdown-content {
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+            display: block;
+            padding: 0.5rem;
+        }
+
+        .nav-link:hover {
+            color: #667eea;
+        }
+
+        /* Dropdown styles */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .dropdown-btn {
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: inherit;
+            color: #333;
+            padding: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dropdown-btn:hover {
+            color: #667eea;
+        }
+
+        .dropdown-menu {
             display: none;
             position: absolute;
-            background: rgba(255, 255, 255, 0.95);
+            top: 100%;
+            left: 0;
+            background: rgba(255, 255, 255, 0.98);
             min-width: 200px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             border-radius: 8px;
             padding: 0.5rem 0;
-            z-index: 1;
+            list-style: none;
         }
 
-        .dropdown:hover .dropdown-content {
+        .nav-dropdown:hover .dropdown-menu {
             display: block;
         }
 
-        .dropdown-item {
+        .dropdown-link {
             display: flex;
             align-items: center;
             padding: 0.7rem 1rem;
             color: #333;
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
         }
 
-        .dropdown-item:hover {
+        .dropdown-link:hover {
             background-color: #f8f9fa;
             color: #667eea;
         }
 
-        .dropdown-item i {
+        .dropdown-link i {
             margin-right: 10px;
             width: 20px;
             color: #667eea;
+        }
+
+        /* Simple Responsive Navigation */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+                padding: 1rem 20px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.5rem 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+
+            .dropdown-link {
+                padding: 0.5rem 0;
+            }
         }
 
         /* Footer */
@@ -167,7 +237,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 1rem 20px;
+            position: relative;
         }
 
         .logo {
@@ -175,12 +246,32 @@
             font-weight: bold;
             color: #667eea;
             text-decoration: none;
+            z-index: 1001;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #667eea;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
             gap: 2rem;
+            align-items: center;
         }
 
         .nav-links a {
@@ -485,8 +576,59 @@
                 font-size: 2rem;
             }
 
+            /* Navigation styles for mobile */
             .nav-links {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                right: -100%;
+                top: 0;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                width: 80%;
+                padding: 80px 20px;
+                gap: 1.5rem;
+                transition: 0.3s ease-in-out;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: block;
+                z-index: 1000;
+                position: relative;
+            }
+
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                padding-left: 20px;
                 display: none;
+                background: transparent;
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+
+            .dropdown-item {
+                padding: 10px 0;
             }
 
             .content-grid {
@@ -575,6 +717,119 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+
+        
+
+.topnav {
+  overflow: hidden;
+ background-color: #fff;
+
+
+
+
+ 
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #000;
+  text-align: center;
+  padding: 14px 40px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.active {
+  background-color: #9caeff;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 17px;    
+  border: none;
+  outline: none;
+  color: #000;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: #9caeff;
+  color: white;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child), .dropdown .dropbtn {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive .dropdown {float: none;}
+  .topnav.responsive .dropdown-content {position: relative;}
+  .topnav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+
     </style>
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5201480091774722"
      crossorigin="anonymous"></script>
@@ -583,32 +838,81 @@
     <!-- Toast Notification -->
     <div id="toast" class="toast">Copied to clipboard!</div>
 
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="/" class="logo">CyberX Tools</a>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li class="dropdown">
-                    <a href="#">Tools</a>
-                      <div class="dropdown-content">
-                        <a href="adfake.html" class="dropdown-item">
-                            <i class="fas fa-map-marked-alt"></i>
-                            AdFakes
-                        </a>
-                        <a href="age-calculator.html" class="dropdown-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            Age Calculator
-                        </a>
+    <div class="topnav" id="myTopnav"><a href="index.html" class="logo"><alt="">CyberX Tools</a>
+  <a href="index.html" class="active">Home</a>
+ 
+
+  <a href="about.html">About</a>
+   
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div> 
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            const dropdownBtns = document.querySelectorAll('.dropdown-btn');
+
+            // Toggle mobile menu
+            mobileMenuBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navMenu.classList.toggle('active');
+                const isExpanded = navMenu.classList.contains('active');
+                mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
+                // Toggle icon between bars and times
+                mobileMenuBtn.innerHTML = isExpanded ? 
+                    '<i class="fas fa-times"></i>' : 
+                    '<i class="fas fa-bars"></i>';
+                
+                // Prevent body scrolling when menu is open
+                document.body.style.overflow = isExpanded ? 'hidden' : '';
+            });
+
+            // Handle dropdowns in mobile view
+            dropdownBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        const dropdown = this.closest('.nav-dropdown');
                         
-                    </div>
-                </li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="privacy-policy.html">Privacy</a></li>
-                <li><a href="terms.html">Terms</a></li>
-            </ul>
-        </nav>
-    </header>
+                        // Close other dropdowns
+                        document.querySelectorAll('.nav-dropdown').forEach(d => {
+                            if (d !== dropdown) d.classList.remove('active');
+                        });
+                        
+                        dropdown.classList.toggle('active');
+                        
+                        // Toggle dropdown icon
+                        const icon = this.querySelector('.fas');
+                        icon.classList.toggle('fa-chevron-down');
+                        icon.classList.toggle('fa-chevron-up');
+                    }
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.navbar')) {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Close mobile menu when window is resized above mobile breakpoint
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    document.querySelectorAll('.nav-dropdown').forEach(d => {
+                        d.classList.remove('active');
+                    });
+                }
+            });
+        });
+    </script>
 
     <!-- Top AdSense Banner -->
     <div class="ad-banner-top">
@@ -1981,6 +2285,8 @@
         <div class="footer-content">
             <div class="footer-links">
                 <a href="disclaimer.html">Disclaimer</a>
+                   <a href="privacy-policy.html">Privacy Policy</a>
+                      <a href="terms.html">Terms</a>
             </div>
             <div class="copyright">
                 © <span id="year"></span> CyberX Tools
