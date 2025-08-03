@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cyberxtools.com/sitemap.xml
+
+# Block AI training bots (optional)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /

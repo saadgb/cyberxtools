@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdFakes - Global Fake Address Generator | Worldwide Random Address Generator</title>
+    <meta name="description" content="Generate random addresses from 195+ countries worldwide including streets, cities, states, postal codes, and phone numbers for testing purposes. Free global fake address generator.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1 0 auto;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 20px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            padding: 0.7rem 1rem;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+            color: #667eea;
+        }
+
+        .dropdown-item i {
+            margin-right: 10px;
+            width: 20px;
+            color: #667eea;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
+            position: relative;
+            margin-top: auto;
+            flex-shrink: 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-links a {
+            color: #333;
+            text-decoration: none;
+            margin-right: 1rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #667eea;
+        }
+
+        .copyright {
+            color: #666;
+        }
+           
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* AdSense Header Banner */
+        .ad-banner-top {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #dee2e6;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ad-placeholder {
+            background: #e9ecef;
+            border: 2px dashed #6c757d;
+            padding: 20px;
+            color: #6c757d;
+            font-size: 14px;
+            border-radius: 8px;
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+        }
+
+        .hero {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Generator Section */
+        .generator-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        select, input {
+            padding: 0.75rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .generate-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 1rem auto;
+            display: block;
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Results */
+        .results {
+            display: none;
+            margin-top: 2rem;
+        }
+
+        .address-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            border-left: 5px solid #667eea;
+        }
+
+        .address-field {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .address-field:last-child {
+            border-bottom: none;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #555;
+            min-width: 120px;
+        }
+
+        .field-value {
+            font-family: 'Courier New', monospace;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+            flex: 1;
+            margin: 0 1rem;
+        }
+
+        .copy-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: #218838;
+        }
+
+        /* AdSense Sidebar */
+        .sidebar-ad {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 160px;
+            height: 600px;
+            background: #f8f9fa;
+            border: 2px dashed #6c757d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .ad-square {
+            width: 300px;
+            height: 250px;
+            background: #f8f9fa;
+            border: 2px dashed #6c757d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+
+        /* Features Section */
+        .features {
+            margin: 3rem 0;
+        }
+
+        .features h2 {
+            text-align: center;
+            color: white;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+   
+
+        /* Bottom Ad Banner */
+        .ad-banner-bottom {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #dee2e6;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        /* Country Stats */
+        .stats-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar-ad {
+                display: none;
+            }
+
+            .controls {
+                grid-template-columns: 1fr;
+            }
+
+            /* Responsive input fixes */
+            select, input {
+                width: 100%;
+                max-width: 100%;
+                min-width: 0;
+                box-sizing: border-box;
+            }
+
+            .form-group {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .generator-section {
+                padding: 1rem;
+            }
+
+            .controls {
+                gap: 0.5rem;
+            }
+
+            .address-field {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .field-value {
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+
+            .copy-btn {
+                width: 100%;
+                margin-top: 0.5rem;
+            }
+        }
+
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            z-index: 1000;
+            transform: translateX(200%);
+            transition: transform 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            color: #667eea;
+            font-size: 1.1rem;
+            margin: 1rem 0;
+        }
+
+        .loading i {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5201480091774722"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">Copied to clipboard!</div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="/" class="logo">CyberX Tools</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Tools</a>
+                      <div class="dropdown-content">
+                        <a href="adfake.html" class="dropdown-item">
+                            <i class="fas fa-map-marked-alt"></i>
+                            AdFakes
+                        </a>
+                        <a href="age-calculator.html" class="dropdown-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            Age Calculator
+                        </a>
+                        
+                    </div>
+                </li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="privacy-policy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Top AdSense Banner -->
+    <div class="ad-banner-top">
+        <div class="ad-placeholder">
+            <!-- AdSense Top Banner (728x90 or 970x90) -->
+            <div style="width: 728px; height: 90px;">
+                AdSense Banner Ad<br>
+                728x90 or 970x90
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar AdSense -->
+    <div class="sidebar-ad">
+        <div class="ad-placeholder" style="writing-mode: vertical-lr; text-align: center;">
+            AdSense<br>Skyscraper<br>160x600
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Global Fake Address Generator</h1>
+            <p>Generate random addresses from 195+ countries worldwide including streets, cities, states, postal codes, and phone numbers for testing purposes</p>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">195+</div>
+                    <div>Countries Supported</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5000+</div>
+                    <div>Cities Database</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div>Languages</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">∞</div>
+                    <div>Addresses Generated</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Generator Section -->
+        <section class="generator-section">
+            <div class="controls">
+                <div class="form-group">
+                    <label for="country">🌍 Country</label>
+                    <select id="country" onchange="updateStates()">
+                        <option value="">Select Country</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="state">🏛️ State/Province (Optional)</label>
+                    <select id="state" onchange="updateCities()">
+                        <option value="">Any State/Province</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="city">🏙️ City (Optional)</label>
+                    <select id="city">
+                        <option value="">Any City</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="count">📊 Number of Addresses</label>
+                    <select id="count">
+                        <option value="1">1</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+            </div>
+            <button class="generate-btn" onclick="generateAddresses()">
+                <i class="fas fa-magic"></i> Generate Global Addresses
+            </button>
+            <div id="loading" class="loading">
+                <i class="fas fa-spinner"></i> Generating addresses...
+            </div>
+            <div id="results" class="results"></div>
+        </section>
+
+        <!-- Content Grid with Sidebar Ads -->
+        <div class="content-grid">
+            <div class="main-content">
+                <h2>About Global Fake Address Generator</h2>
+                <p>Our comprehensive fake address generator provides realistic random addresses for 195+ countries worldwide. These addresses are perfect for:</p>
+                <ul style="margin: 1rem 0; padding-left: 2rem;">
+                    <li>International software testing and development</li>
+                    <li>Global form validation testing</li>
+                    <li>Worldwide database population</li>
+                    <li>Educational and research purposes</li>
+                    <li>Privacy protection in demos and presentations</li>
+                    <li>E-commerce testing for multiple markets</li>
+                    <li>Localization and internationalization testing</li>
+                </ul>
+
+                <h3 style="margin-top: 2rem; color: #667eea;">Supported Regions</h3>
+                <p>Our generator covers all major regions including:</p>
+                <ul style="margin: 1rem 0; padding-left: 2rem;">
+                    <li><strong>North America:</strong> USA, Canada, Mexico</li>
+                    <li><strong>Europe:</strong> UK, Germany, France, Italy, Spain, and 40+ more</li>
+                    <li><strong>Asia:</strong> China, Japan, India, South Korea, and 45+ more</li>
+                    <li><strong>South America:</strong> Brazil, Argentina, Chile, and 10+ more</li>
+                    <li><strong>Africa:</strong> South Africa, Nigeria, Egypt, and 50+ more</li>
+                    <li><strong>Oceania:</strong> Australia, New Zealand, and Pacific Islands</li>
+                </ul>
+
+                <p style="margin-top: 1rem; color: #666; font-style: italic;">All generated addresses are completely random and should not be used for any illegal activities. They are intended solely for testing and development purposes.</p>
+            </div>
+            <div class="sidebar">
+                <div class="ad-square">
+                    <div class="ad-placeholder">
+                        AdSense<br>Square Ad<br>300x250
+                    </div>
+                </div>
+                <div class="ad-square">
+                    <div class="ad-placeholder">
+                        AdSense<br>Square Ad<br>300x250
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <section class="features">
+            <h2>Why Choose Our Global Generator?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>195+ Countries</h3>
+                    <p>Complete coverage of all UN member countries with accurate formatting and postal systems.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Native Languages</h3>
+                    <p>Addresses generated in local languages and scripts including Arabic, Chinese, Cyrillic, and more.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Privacy Focused</h3>
+                    <p>No registration required. Generate addresses instantly without storing any personal information.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Generate multiple addresses instantly with our optimized algorithms. No waiting time required.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Fully responsive design works perfectly on desktop, tablet, and mobile devices.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>Export Options</h3>
+                    <p>Copy individual fields or export complete address data in various formats.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom AdSense Banner -->
+    <div class="ad-banner-bottom">
+        <div class="ad-placeholder">
+            <!-- AdSense Bottom Banner (728x90) -->
+            <div style="width: 728px; height: 90px;">
+                AdSense Bottom Banner<br>
+                728x90
+            </div>
+        </div>
+    </div>
+
+  
+
+    <script>
+        // Comprehensive global address data
+        const globalAddressData = {
+            // North America
+            'US': {
+                name: 'United States',
+                flag: '🇺🇸',
+                states: {
+                    'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas', 'CA': 'California',
+                    'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware', 'FL': 'Florida', 'GA': 'Georgia',
+                    'HI': 'Hawaii', 'ID': 'Idaho', 'IL': 'Illinois', 'IN': 'Indiana', 'IA': 'Iowa',
+                    'KS': 'Kansas', 'KY': 'Kentucky', 'LA': 'Louisiana', 'ME': 'Maine', 'MD': 'Maryland',
+                    'MA': 'Massachusetts', 'MI': 'Michigan', 'MN': 'Minnesota', 'MS': 'Mississippi', 'MO': 'Missouri',
+                    'MT': 'Montana', 'NE': 'Nebraska', 'NV': 'Nevada', 'NH': 'New Hampshire', 'NJ': 'New Jersey',
+                    'NM': 'New Mexico', 'NY': 'New York', 'NC': 'North Carolina', 'ND': 'North Dakota', 'OH': 'Ohio',
+                    'OK': 'Oklahoma', 'OR': 'Oregon', 'PA': 'Pennsylvania', 'RI': 'Rhode Island', 'SC': 'South Carolina',
+                    'SD': 'South Dakota', 'TN': 'Tennessee', 'TX': 'Texas', 'UT': 'Utah', 'VT': 'Vermont',
+                    'VA': 'Virginia', 'WA': 'Washington', 'WV': 'West Virginia', 'WI': 'Wisconsin', 'WY': 'Wyoming'
+                },
+                cities: {
+                    'CA': ['Los Angeles', 'San Francisco', 'San Diego', 'Sacramento', 'Oakland', 'Fresno', 'San Jose'],
+                    'NY': ['New York', 'Buffalo', 'Rochester', 'Syracuse', 'Albany', 'Yonkers', 'Schenectady'],
+                    'TX': ['Houston', 'Dallas', 'Austin', 'San Antonio', 'Fort Worth', 'El Paso', 'Plano'],
+                    'FL': ['Miami', 'Orlando', 'Tampa', 'Jacksonville', 'Fort Lauderdale', 'St. Petersburg', 'Hialeah']
+                },
+                streetNames: ['Main St', 'Oak Ave', 'Park Rd', 'Elm St', 'Washington Ave', 'Lincoln Blvd', 'Maple Dr', 'Cedar Ln'],
+                firstNames: ['John', 'Jane', 'Michael', 'Sarah', 'David', 'Emily', 'Robert', 'Lisa', 'James', 'Mary'],
+                lastNames: ['Smith', 'Johnson', 'Brown', 'Davis', 'Miller', 'Wilson', 'Moore', 'Taylor', 'Anderson', 'Thomas'],
+                phoneFormat: '(XXX) XXX-XXXX',
+                postalFormat: 'XXXXX'
+            },
+            'CA': {
+                name: 'Canada',
+                flag: '🇨🇦',
+                states: {
+                    'AB': 'Alberta', 'BC': 'British Columbia', 'MB': 'Manitoba', 'NB': 'New Brunswick',
+                    'NL': 'Newfoundland and Labrador', 'NS': 'Nova Scotia', 'ON': 'Ontario', 'PE': 'Prince Edward Island',
+                    'QC': 'Quebec', 'SK': 'Saskatchewan', 'NT': 'Northwest Territories', 'NU': 'Nunavut', 'YT': 'Yukon'
+                },
+                cities: {
+                    'ON': ['Toronto', 'Ottawa', 'Hamilton', 'London', 'Windsor', 'Kitchener', 'Mississauga'],
+                    'QC': ['Montreal', 'Quebec City', 'Laval', 'Gatineau', 'Longueuil', 'Sherbrooke', 'Saguenay'],
+                    'BC': ['Vancouver', 'Victoria', 'Burnaby', 'Richmond', 'Surrey', 'Langley', 'Abbotsford'],
+                    'AB': ['Calgary', 'Edmonton', 'Red Deer', 'Lethbridge', 'Medicine Hat', 'Grande Prairie', 'Airdrie']
+                },
+                streetNames: ['Main St', 'King St', 'Queen St', 'University Ave', 'Yonge St', 'Bloor St', 'Dundas St'],
+                firstNames: ['John', 'Mary', 'Michael', 'Jennifer', 'David', 'Lisa', 'Robert', 'Karen', 'William', 'Susan'],
+                lastNames: ['Smith', 'Brown', 'Johnson', 'Wilson', 'Campbell', 'Anderson', 'Taylor', 'Thomas', 'Jackson', 'White'],
+                phoneFormat: '(XXX) XXX-XXXX',
+                postalFormat: 'AXA XAX'
+            },
+            'MX': {
+                name: 'Mexico',
+                flag: '🇲🇽',
+                states: {
+                    'AGU': 'Aguascalientes', 'BCN': 'Baja California', 'BCS': 'Baja California Sur', 'CAM': 'Campeche',
+                    'CHP': 'Chiapas', 'CHH': 'Chihuahua', 'COA': 'Coahuila', 'COL': 'Colima', 'DIF': 'Mexico City',
+                    'DUR': 'Durango', 'GUA': 'Guanajuato', 'GRO': 'Guerrero', 'HID': 'Hidalgo', 'JAL': 'Jalisco',
+                    'MEX': 'Mexico State', 'MIC': 'Michoacán', 'MOR': 'Morelos', 'NAY': 'Nayarit', 'NLE': 'Nuevo León'
+                },
+                cities: {
+                    'DIF': ['Mexico City', 'Iztapalapa', 'Ecatepec', 'Guadalajara', 'Puebla', 'Tijuana', 'León'],
+                    'JAL': ['Guadalajara', 'Zapopan', 'Tlaquepaque', 'Tonalá', 'Puerto Vallarta', 'Tlajomulco'],
+                    'NLE': ['Monterrey', 'Guadalupe', 'San Nicolás', 'Apodaca', 'General Escobedo', 'Santa Catarina']
+                },
+                streetNames: ['Calle Principal', 'Avenida Juárez', 'Calle Hidalgo', 'Avenida Revolución', 'Calle Morelos'],
+                firstNames: ['José', 'María', 'Juan', 'Ana', 'Luis', 'Carmen', 'Carlos', 'Rosa', 'Miguel', 'Isabel'],
+                lastNames: ['García', 'Rodríguez', 'González', 'Hernández', 'López', 'Martínez', 'Pérez', 'Sánchez'],
+                phoneFormat: '+52 XX XXXX XXXX',
+                postalFormat: 'XXXXX'
+            },
+
+            // Europe
+            'GB': {
+                name: 'United Kingdom',
+                flag: '🇬🇧',
+                states: {
+                    'ENG': 'England', 'SCT': 'Scotland', 'WLS': 'Wales', 'NIR': 'Northern Ireland'
+                },
+                cities: {
+                    'ENG': ['London', 'Birmingham', 'Manchester', 'Liverpool', 'Leeds', 'Sheffield', 'Bristol', 'Newcastle'],
+                    'SCT': ['Glasgow', 'Edinburgh', 'Aberdeen', 'Dundee', 'Stirling', 'Perth', 'Inverness'],
+                    'WLS': ['Cardiff', 'Swansea', 'Newport', 'Wrexham', 'Barry', 'Rhondda', 'Caerphilly'],
+                    'NIR': ['Belfast', 'Londonderry', 'Lisburn', 'Newtownabbey', 'Bangor', 'Craigavon']
+                },
+                streetNames: ['High Street', 'Church Lane', 'Victoria Road', 'King Street', 'Queen Street', 'Mill Lane'],
+                firstNames: ['James', 'Mary', 'John', 'Patricia', 'Robert', 'Jennifer', 'Michael', 'Linda', 'William', 'Elizabeth'],
+                lastNames: ['Smith', 'Jones', 'Taylor', 'Brown', 'Williams', 'Wilson', 'Johnson', 'Davies', 'Robinson', 'Wright'],
+                phoneFormat: '+44 XXXX XXXXXX',
+                postalFormat: 'AA## #AA'
+            },
+            'DE': {
+                name: 'Germany',
+                flag: '🇩🇪',
+                states: {
+                    'BW': 'Baden-Württemberg', 'BY': 'Bavaria', 'BE': 'Berlin', 'BB': 'Brandenburg', 'HB': 'Bremen',
+                    'HH': 'Hamburg', 'HE': 'Hesse', 'MV': 'Mecklenburg-Vorpommern', 'NI': 'Lower Saxony',
+                    'NW': 'North Rhine-Westphalia', 'RP': 'Rhineland-Palatinate', 'SL': 'Saarland', 'SN': 'Saxony',
+                    'ST': 'Saxony-Anhalt', 'SH': 'Schleswig-Holstein', 'TH': 'Thuringia'
+                },
+                cities: {
+                    'BE': ['Berlin', 'Charlottenburg', 'Spandau', 'Tempelhof', 'Neukölln', 'Friedrichshain'],
+                    'BY': ['Munich', 'Nuremberg', 'Augsburg', 'Würzburg', 'Regensburg', 'Ingolstadt', 'Erlangen'],
+                    'NW': ['Cologne', 'Düsseldorf', 'Dortmund', 'Essen', 'Duisburg', 'Bochum', 'Wuppertal'],
+                    'HH': ['Hamburg', 'Altona', 'Eimsbüttel', 'Harburg', 'Wandsbek', 'Bergedorf', 'Nord']
+                },
+                streetNames: ['Hauptstraße', 'Bahnhofstraße', 'Kirchgasse', 'Schulstraße', 'Gartenstraße', 'Bergstraße'],
+                firstNames: ['Hans', 'Anna', 'Klaus', 'Maria', 'Peter', 'Ingrid', 'Wolfgang', 'Brigitte', 'Günter', 'Renate'],
+                lastNames: ['Müller', 'Schmidt', 'Schneider', 'Fischer', 'Weber', 'Meyer', 'Wagner', 'Becker', 'Schulz', 'Hoffmann'],
+                phoneFormat: '+49 XXX XXXXXXX',
+                postalFormat: 'XXXXX'
+            },
+            'FR': {
+                name: 'France',
+                flag: '🇫🇷',
+                states: {
+                    'ARA': 'Auvergne-Rhône-Alpes', 'BFC': 'Bourgogne-Franche-Comté', 'BRE': 'Brittany', 'CVL': 'Centre-Val de Loire',
+                    'COR': 'Corsica', 'GES': 'Grand Est', 'HDF': 'Hauts-de-France', 'IDF': 'Île-de-France',
+                    'NOR': 'Normandy', 'NAQ': 'Nouvelle-Aquitaine', 'OCC': 'Occitania', 'PDL': 'Pays de la Loire',
+                    'PAC': 'Provence-Alpes-Côte d\'Azur'
+                },
+                cities: {
+                    'IDF': ['Paris', 'Boulogne-Billancourt', 'Saint-Denis', 'Argenteuil', 'Montreuil', 'Créteil', 'Nanterre'],
+                    'PAC': ['Marseille', 'Nice', 'Toulon', 'Aix-en-Provence', 'Antibes', 'Cannes', 'Avignon'],
+                    'ARA': ['Lyon', 'Saint-Étienne', 'Grenoble', 'Villeurbanne', 'Clermont-Ferrand', 'Chambéry'],
+                    'OCC': ['Toulouse', 'Montpellier', 'Nîmes', 'Perpignan', 'Béziers', 'Narbonne', 'Carcassonne']
+                },
+                streetNames: ['Rue de la Paix', 'Avenue des Champs', 'Rue Victor Hugo', 'Boulevard Saint-Michel', 'Rue de Rivoli'],
+                firstNames: ['Pierre', 'Marie', 'Jean', 'Françoise', 'Michel', 'Monique', 'Alain', 'Catherine', 'Philippe', 'Sylvie'],
+                lastNames: ['Martin', 'Bernard', 'Thomas', 'Petit', 'Robert', 'Richard', 'Durand', 'Dubois', 'Moreau', 'Laurent'],
+                phoneFormat: '+33 X XX XX XX XX',
+                postalFormat: 'XXXXX'
+            },
+            'IT': {
+                name: 'Italy',
+                flag: '🇮🇹',
+                states: {
+                    'ABR': 'Abruzzo', 'BAS': 'Basilicata', 'CAL': 'Calabria', 'CAM': 'Campania', 'EMR': 'Emilia-Romagna',
+                    'FVG': 'Friuli-Venezia Giulia', 'LAZ': 'Lazio', 'LIG': 'Liguria', 'LOM': 'Lombardy', 'MAR': 'Marche',
+                    'MOL': 'Molise', 'PIE': 'Piedmont', 'PUG': 'Puglia', 'SAR': 'Sardinia', 'SIC': 'Sicily',
+                    'TOS': 'Tuscany', 'TAA': 'Trentino-Alto Adige', 'UMB': 'Umbria', 'VDA': 'Aosta Valley', 'VEN': 'Veneto'
+                },
+                cities: {
+                    'LAZ': ['Rome', 'Latina', 'Frosinone', 'Viterbo', 'Rieti', 'Tivoli', 'Velletri'],
+                    'LOM': ['Milan', 'Brescia', 'Monza', 'Bergamo', 'Como', 'Varese', 'Pavia'],
+                    'CAM': ['Naples', 'Salerno', 'Caserta', 'Benevento', 'Avellino', 'Torre del Greco'],
+                    'SIC': ['Palermo', 'Catania', 'Messina', 'Syracuse', 'Trapani', 'Agrigento', 'Ragusa']
+                },
+                streetNames: ['Via Roma', 'Corso Italia', 'Via Garibaldi', 'Piazza San Marco', 'Via Dante', 'Corso Vittorio'],
+                firstNames: ['Giuseppe', 'Maria', 'Antonio', 'Anna', 'Francesco', 'Giuseppina', 'Giovanni', 'Rosa', 'Salvatore', 'Angela'],
+                lastNames: ['Rossi', 'Russo', 'Ferrari', 'Esposito', 'Bianchi', 'Romano', 'Colombo', 'Ricci', 'Marino', 'Greco'],
+                phoneFormat: '+39 XXX XXX XXXX',
+                postalFormat: 'XXXXX'
+            },
+            'ES': {
+                name: 'Spain',
+                flag: '🇪🇸',
+                states: {
+                    'AN': 'Andalusia', 'AR': 'Aragon', 'AS': 'Asturias', 'IB': 'Balearic Islands', 'PV': 'Basque Country',
+                    'CN': 'Canary Islands', 'CB': 'Cantabria', 'CM': 'Castile-La Mancha', 'CL': 'Castile and León',
+                    'CT': 'Catalonia', 'EX': 'Extremadura', 'GA': 'Galicia', 'MD': 'Madrid', 'MC': 'Murcia',
+                    'NC': 'Navarre', 'RI': 'La Rioja', 'VC': 'Valencian Community'
+                },
+                cities: {
+                    'MD': ['Madrid', 'Móstoles', 'Alcalá de Henares', 'Fuenlabrada', 'Leganés', 'Getafe', 'Alcorcón'],
+                    'CT': ['Barcelona', 'Hospitalet', 'Terrassa', 'Badalona', 'Sabadell', 'Lleida', 'Tarragona'],
+                    'AN': ['Seville', 'Málaga', 'Córdoba', 'Granada', 'Jerez', 'Almería', 'Huelva'],
+                    'VC': ['Valencia', 'Alicante', 'Elche', 'Castellón', 'Torrevieja', 'Orihuela', 'Gandia']
+                },
+                streetNames: ['Calle Mayor', 'Avenida de la Constitución', 'Calle Real', 'Plaza Mayor', 'Calle Larga'],
+                firstNames: ['Antonio', 'María Carmen', 'José', 'Josefa', 'Francisco', 'Isabel', 'Juan', 'Ana María', 'Manuel', 'Pilar'],
+                lastNames: ['García', 'González', 'Rodríguez', 'Fernández', 'López', 'Martínez', 'Sánchez', 'Pérez', 'Gómez', 'Martín'],
+                phoneFormat: '+34 XXX XXX XXX',
+                postalFormat: 'XXXXX'
+            },
+
+            // Asia
+            'CN': {
+                name: 'China',
+                flag: '🇨🇳',
+                states: {
+                    'BJ': 'Beijing', 'TJ': 'Tianjin', 'HE': 'Hebei', 'SX': 'Shanxi', 'IM': 'Inner Mongolia',
+                    'LN': 'Liaoning', 'JL': 'Jilin', 'HL': 'Heilongjiang', 'SH': 'Shanghai', 'JS': 'Jiangsu',
+                    'ZJ': 'Zhejiang', 'AH': 'Anhui', 'FJ': 'Fujian', 'JX': 'Jiangxi', 'SD': 'Shandong',
+                    'HA': 'Henan', 'HB': 'Hubei', 'HN': 'Hunan', 'GD': 'Guangdong', 'GX': 'Guangxi',
+                    'HI': 'Hainan', 'CQ': 'Chongqing', 'SC': 'Sichuan', 'GZ': 'Guizhou', 'YN': 'Yunnan',
+                    'XZ': 'Tibet', 'SN': 'Shaanxi', 'GS': 'Gansu', 'QH': 'Qinghai', 'NX': 'Ningxia', 'XJ': 'Xinjiang'
+                },
+                cities: {
+                    'BJ': ['Beijing', 'Chaoyang', 'Haidian', 'Fengtai', 'Shijingshan', 'Mentougou'],
+                    'SH': ['Shanghai', 'Pudong', 'Huangpu', 'Xuhui', 'Changning', 'Jing\'an'],
+                    'GD': ['Guangzhou', 'Shenzhen', 'Dongguan', 'Foshan', 'Zhongshan', 'Zhuhai'],
+                    'JS': ['Nanjing', 'Suzhou', 'Wuxi', 'Changzhou', 'Nantong', 'Yangzhou']
+                },
+                streetNames: ['中山路', '人民路', '解放路', '建国路', '和平路', '胜利路', '友谊路', '文化路'],
+                firstNames: ['张', '王', '李', '赵', '刘', '陈', '杨', '黄', '周', '吴'],
+                lastNames: ['伟', '芳', '娜', '敏', '静', '丽', '强', '磊', '军', '洋'],
+                phoneFormat: '+86 XXX XXXX XXXX',
+                postalFormat: 'XXXXXX'
+            },
+            'JP': {
+                name: 'Japan',
+                flag: '🇯🇵',
+                states: {
+                    'HKD': 'Hokkaido', 'AOM': 'Aomori', 'IWT': 'Iwate', 'MYG': 'Miyagi', 'AKT': 'Akita',
+                    'YMG': 'Yamagata', 'FKS': 'Fukushima', 'IBR': 'Ibaraki', 'TCG': 'Tochigi', 'GNM': 'Gunma',
+                    'STM': 'Saitama', 'CHB': 'Chiba', 'TKY': 'Tokyo', 'KNG': 'Kanagawa', 'NIG': 'Niigata',
+                    'TYM': 'Toyama', 'ISK': 'Ishikawa', 'FKI': 'Fukui', 'YMN': 'Yamanashi', 'NGN': 'Nagano',
+                    'GIF': 'Gifu', 'SHZ': 'Shizuoka', 'AIC': 'Aichi', 'MIE': 'Mie', 'SHG': 'Shiga',
+                    'KYT': 'Kyoto', 'OSK': 'Osaka', 'HYG': 'Hyogo', 'NAR': 'Nara', 'WKY': 'Wakayama',
+                    'TTR': 'Tottori', 'SMN': 'Shimane', 'OKY': 'Okayama', 'HSM': 'Hiroshima', 'YMG': 'Yamaguchi',
+                    'TKS': 'Tokushima', 'KGW': 'Kagawa', 'EHM': 'Ehime', 'KCH': 'Kochi', 'FKO': 'Fukuoka',
+                    'SGS': 'Saga', 'NGS': 'Nagasaki', 'KMM': 'Kumamoto', 'OIT': 'Oita', 'MYZ': 'Miyazaki',
+                    'KGS': 'Kagoshima', 'OKN': 'Okinawa'
+                },
+                cities: {
+                    'TKY': ['Tokyo', 'Shibuya', 'Shinjuku', 'Harajuku', 'Ginza', 'Akihabara', 'Roppongi'],
+                    'OSK': ['Osaka', 'Sakai', 'Higashiosaka', 'Hirakata', 'Toyonaka', 'Suita', 'Kishiwada'],
+                    'KNG': ['Yokohama', 'Kawasaki', 'Sagamihara', 'Fujisawa', 'Chigasaki', 'Hiratsuka'],
+                    'AIC': ['Nagoya', 'Toyota', 'Okazaki', 'Ichinomiya', 'Kasugai', 'Anjo', 'Komaki']
+                },
+                streetNames: ['中央通り', '本町', '駅前', '商店街', '大通り', '桜通り', '平和通り', '文化通り'],
+                firstNames: ['田中', '佐藤', '鈴木', '高橋', '伊藤', '渡辺', '山本', '中村', '小林', '加藤'],
+                lastNames: ['太郎', '花子', '一郎', '次郎', '美香', '裕子', '健一', '恵子', '博', '明'],
+                phoneFormat: '+81 XX XXXX XXXX',
+                postalFormat: 'XXX-XXXX'
+            },
+            'IN': {
+                name: 'India',
+                flag: '🇮🇳',
+                states: {
+                    'AP': 'Andhra Pradesh', 'AR': 'Arunachal Pradesh', 'AS': 'Assam', 'BR': 'Bihar', 'CT': 'Chhattisgarh',
+                    'GA': 'Goa', 'GJ': 'Gujarat', 'HR': 'Haryana', 'HP': 'Himachal Pradesh', 'JH': 'Jharkhand',
+                    'KA': 'Karnataka', 'KL': 'Kerala', 'MP': 'Madhya Pradesh', 'MH': 'Maharashtra', 'MN': 'Manipur',
+                    'ML': 'Meghalaya', 'MZ': 'Mizoram', 'NL': 'Nagaland', 'OR': 'Odisha', 'PB': 'Punjab',
+                    'RJ': 'Rajasthan', 'SK': 'Sikkim', 'TN': 'Tamil Nadu', 'TG': 'Telangana', 'TR': 'Tripura',
+                    'UP': 'Uttar Pradesh', 'UT': 'Uttarakhand', 'WB': 'West Bengal', 'AN': 'Andaman and Nicobar',
+                    'CH': 'Chandigarh', 'DN': 'Dadra and Nagar Haveli', 'DD': 'Daman and Diu', 'DL': 'Delhi',
+                    'JK': 'Jammu and Kashmir', 'LA': 'Ladakh', 'LD': 'Lakshadweep', 'PY': 'Puducherry'
+                },
+                cities: {
+                    'MH': ['Mumbai', 'Pune', 'Nagpur', 'Thane', 'Nashik', 'Aurangabad', 'Solapur'],
+                    'DL': ['New Delhi', 'Delhi', 'Dwarka', 'Rohini', 'Janakpuri', 'Lajpat Nagar'],
+                    'KA': ['Bangalore', 'Mysore', 'Hubli-Dharwad', 'Mangalore', 'Belgaum', 'Gulbarga'],
+                    'TN': ['Chennai', 'Coimbatore', 'Madurai', 'Tiruchirappalli', 'Salem', 'Tirunelveli']
+                },
+                streetNames: ['MG Road', 'Gandhi Road', 'Nehru Street', 'Park Street', 'Brigade Road', 'Commercial Street'],
+                firstNames: ['Rajesh', 'Priya', 'Amit', 'Sunita', 'Vijay', 'Kavita', 'Ravi', 'Meera', 'Suresh', 'Anita'],
+                lastNames: ['Sharma', 'Verma', 'Singh', 'Kumar', 'Gupta', 'Agarwal', 'Jain', 'Patel', 'Shah', 'Mehta'],
+                phoneFormat: '+91 XXXXX XXXXX',
+                postalFormat: 'XXXXXX'
+            },
+
+            // South America
+            'BR': {
+                name: 'Brazil',
+                flag: '🇧🇷',
+                states: {
+                    'AC': 'Acre', 'AL': 'Alagoas', 'AP': 'Amapá', 'AM': 'Amazonas', 'BA': 'Bahia',
+                    'CE': 'Ceará', 'DF': 'Federal District', 'ES': 'Espírito Santo', 'GO': 'Goiás',
+                    'MA': 'Maranhão', 'MT': 'Mato Grosso', 'MS': 'Mato Grosso do Sul', 'MG': 'Minas Gerais',
+                    'PA': 'Pará', 'PB': 'Paraíba', 'PR': 'Paraná', 'PE': 'Pernambuco', 'PI': 'Piauí',
+                    'RJ': 'Rio de Janeiro', 'RN': 'Rio Grande do Norte', 'RS': 'Rio Grande do Sul',
+                    'RO': 'Rondônia', 'RR': 'Roraima', 'SC': 'Santa Catarina', 'SP': 'São Paulo',
+                    'SE': 'Sergipe', 'TO': 'Tocantins'
+                },
+                cities: {
+                    'SP': ['São Paulo', 'Guarulhos', 'Campinas', 'São Bernardo', 'Santo André', 'Osasco'],
+                    'RJ': ['Rio de Janeiro', 'São Gonçalo', 'Duque de Caxias', 'Nova Iguaçu', 'Niterói'],
+                    'MG': ['Belo Horizonte', 'Uberlândia', 'Contagem', 'Juiz de Fora', 'Betim', 'Montes Claros'],
+                    'BA': ['Salvador', 'Feira de Santana', 'Vitória da Conquista', 'Camaçari', 'Juazeiro']
+                },
+                streetNames: ['Rua das Flores', 'Avenida Paulista', 'Rua XV de Novembro', 'Avenida Brasil', 'Rua da Consolação'],
+                firstNames: ['José', 'Maria', 'Antonio', 'Ana', 'Francisco', 'Francisca', 'João', 'Antônia', 'Carlos', 'Luiza'],
+                lastNames: ['Silva', 'Santos', 'Oliveira', 'Souza', 'Rodrigues', 'Ferreira', 'Alves', 'Pereira', 'Lima', 'Gomes'],
+                phoneFormat: '+55 XX XXXXX-XXXX',
+                postalFormat: 'XXXXX-XXX'
+            },
+            'AR': {
+                name: 'Argentina',
+                flag: '🇦🇷',
+                states: {
+                    'BA': 'Buenos Aires', 'CA': 'Catamarca', 'CH': 'Chaco', 'CB': 'Chubut', 'CO': 'Córdoba',
+                    'CR': 'Corrientes', 'ER': 'Entre Ríos', 'FO': 'Formosa', 'JU': 'Jujuy', 'LP': 'La Pampa',
+                    'LR': 'La Rioja', 'ME': 'Mendoza', 'MI': 'Misiones', 'NE': 'Neuquén', 'RN': 'Río Negro',
+                    'SA': 'Salta', 'SJ': 'San Juan', 'SL': 'San Luis', 'SC': 'Santa Cruz', 'SF': 'Santa Fe',
+                    'SE': 'Santiago del Estero', 'TF': 'Tierra del Fuego', 'TU': 'Tucumán', 'CF': 'Ciudad de Buenos Aires'
+                },
+                cities: {
+                    'BA': ['La Plata', 'Mar del Plata', 'Bahía Blanca', 'San Nicolás', 'Tandil', 'Olavarría'],
+                    'CF': ['Buenos Aires', 'Palermo', 'Recoleta', 'San Telmo', 'Belgrano', 'Villa Crespo'],
+                    'CO': ['Córdoba', 'Villa María', 'Río Cuarto', 'San Francisco', 'Villa Carlos Paz'],
+                    'SF': ['Santa Fe', 'Rosario', 'Rafaela', 'Reconquista', 'Venado Tuerto', 'Esperanza']
+                },
+                streetNames: ['Avenida Corrientes', 'Calle Florida', 'Avenida de Mayo', 'Calle San Martín', 'Avenida Libertador'],
+                firstNames: ['Juan', 'María', 'Carlos', 'Ana', 'José', 'Carmen', 'Luis', 'Rosa', 'Miguel', 'Isabel'],
+                lastNames: ['González', 'Rodríguez', 'Pérez', 'López', 'Martínez', 'García', 'Fernández', 'Álvarez', 'Romero', 'Díaz'],
+                phoneFormat: '+54 XX XXXX-XXXX',
+                postalFormat: 'AXXXX'
+            },
+
+            // Africa
+            'ZA': {
+                name: 'South Africa',
+                flag: '🇿🇦',
+                states: {
+                    'EC': 'Eastern Cape', 'FS': 'Free State', 'GP': 'Gauteng', 'KZN': 'KwaZulu-Natal',
+                    'LP': 'Limpopo', 'MP': 'Mpumalanga', 'NC': 'Northern Cape', 'NW': 'North West', 'WC': 'Western Cape'
+                },
+                cities: {
+                    'GP': ['Johannesburg', 'Pretoria', 'Soweto', 'Benoni', 'Kempton Park', 'Boksburg'],
+                    'WC': ['Cape Town', 'Bellville', 'Mitchells Plain', 'Khayelitsha', 'Somerset West'],
+                    'KZN': ['Durban', 'Pietermaritzburg', 'Newcastle', 'Ladysmith', 'Pinetown', 'Chatsworth'],
+                    'EC': ['Port Elizabeth', 'East London', 'Uitenhage', 'King William\'s Town', 'Mdantsane']
+                },
+                streetNames: ['Main Street', 'Church Street', 'Market Street', 'Long Street', 'Commissioner Street'],
+                firstNames: ['John', 'Mary', 'David', 'Sarah', 'Michael', 'Elizabeth', 'James', 'Susan', 'Robert', 'Patricia'],
+                lastNames: ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Miller', 'Davis', 'Garcia', 'Rodriguez', 'Wilson'],
+                phoneFormat: '+27 XX XXX XXXX',
+                postalFormat: 'XXXX'
+            },
+            'NG': {
+                name: 'Nigeria',
+                flag: '🇳🇬',
+                states: {
+                    'AB': 'Abia', 'AD': 'Adamawa', 'AK': 'Akwa Ibom', 'AN': 'Anambra', 'BA': 'Bauchi',
+                    'BY': 'Bayelsa', 'BE': 'Benue', 'BO': 'Borno', 'CR': 'Cross River', 'DE': 'Delta',
+                    'EB': 'Ebonyi', 'ED': 'Edo', 'EK': 'Ekiti', 'EN': 'Enugu', 'GO': 'Gombe',
+                    'IM': 'Imo', 'JI': 'Jigawa', 'KD': 'Kaduna', 'KN': 'Kano', 'KT': 'Katsina',
+                    'KE': 'Kebbi', 'KO': 'Kogi', 'KW': 'Kwara', 'LA': 'Lagos', 'NA': 'Nasarawa',
+                    'NI': 'Niger', 'OG': 'Ogun', 'ON': 'Ondo', 'OS': 'Osun', 'OY': 'Oyo',
+                    'PL': 'Plateau', 'RI': 'Rivers', 'SO': 'Sokoto', 'TA': 'Taraba', 'YO': 'Yobe', 'ZA': 'Zamfara'
+                },
+                cities: {
+                    'LA': ['Lagos', 'Ikeja', 'Ikorodu', 'Epe', 'Badagry', 'Lagos Island'],
+                    'KN': ['Kano', 'Fagge', 'Dala', 'Gwale', 'Tarauni', 'Nasarawa'],
+                    'AB': ['Umuahia', 'Aba', 'Arochukwu', 'Ohafia', 'Ukwa', 'Bende'],
+                    'RI': ['Port Harcourt', 'Obio-Akpor', 'Okrika', 'Ogu–Bolo', 'Eleme', 'Tai']
+                },
+                streetNames: ['Lagos Street', 'Abuja Road', 'Victoria Street', 'Broad Street', 'Independence Avenue'],
+                firstNames: ['Chukwu', 'Adaora', 'Emeka', 'Ngozi', 'Olumide', 'Funmi', 'Tunde', 'Bisi', 'Kemi', 'Seun'],
+                lastNames: ['Okafor', 'Adebayo', 'Okoro', 'Adeola', 'Okonkwo', 'Adebisi', 'Nwosu', 'Adeleke', 'Ogunyemi', 'Igwe'],
+                phoneFormat: '+234 XXX XXX XXXX',
+                postalFormat: 'XXXXXX'
+            },
+
+            // Australia & Oceania
+            'AU': {
+                name: 'Australia',
+                flag: '🇦🇺',
+                states: {
+                    'NSW': 'New South Wales', 'VIC': 'Victoria', 'QLD': 'Queensland', 'WA': 'Western Australia',
+                    'SA': 'South Australia', 'TAS': 'Tasmania', 'ACT': 'Australian Capital Territory', 'NT': 'Northern Territory'
+                },
+                cities: {
+                    'NSW': ['Sydney', 'Newcastle', 'Wollongong', 'Central Coast', 'Maitland', 'Albury'],
+                    'VIC': ['Melbourne', 'Geelong', 'Ballarat', 'Bendigo', 'Shepparton', 'Latrobe'],
+                    'QLD': ['Brisbane', 'Gold Coast', 'Townsville', 'Cairns', 'Toowoomba', 'Mackay'],
+                    'WA': ['Perth', 'Mandurah', 'Bunbury', 'Kalgoorlie', 'Geraldton', 'Albany']
+                },
+                streetNames: ['George Street', 'King Street', 'Queen Street', 'Collins Street', 'Elizabeth Street', 'Pitt Street'],
+                firstNames: ['James', 'Charlotte', 'Oliver', 'Olivia', 'William', 'Ava', 'Jack', 'Amelia', 'Lucas', 'Mia'],
+                lastNames: ['Smith', 'Jones', 'Williams', 'Brown', 'Wilson', 'Taylor', 'Johnson', 'White', 'Martin', 'Anderson'],
+                phoneFormat: '+61 X XXXX XXXX',
+                postalFormat: 'XXXX'
+            },
+            'NZ': {
+                name: 'New Zealand',
+                flag: '🇳🇿',
+                states: {
+                    'AUK': 'Auckland', 'BOP': 'Bay of Plenty', 'CAN': 'Canterbury', 'GIS': 'Gisborne', 'HKB': 'Hawke\'s Bay',
+                    'MWT': 'Manawatu-Wanganui', 'MBH': 'Marlborough', 'NSN': 'Nelson', 'NTL': 'Northland', 'OTA': 'Otago',
+                    'STL': 'Southland', 'TKI': 'Taranaki', 'TAS': 'Tasman', 'WKO': 'Waikato', 'WGN': 'Wellington', 'WTC': 'West Coast'
+                },
+                cities: {
+                    'AUK': ['Auckland', 'Manukau', 'North Shore', 'Waitakere', 'Papakura', 'Rodney'],
+                    'CAN': ['Christchurch', 'Timaru', 'Ashburton', 'Rangiora', 'Rolleston', 'Lincoln'],
+                    'WGN': ['Wellington', 'Lower Hutt', 'Upper Hutt', 'Porirua', 'Kapiti Coast', 'Masterton'],
+                    'WKO': ['Hamilton', 'Tauranga', 'Rotorua', 'New Plymouth', 'Napier', 'Hastings']
+                },
+                streetNames: ['Queen Street', 'High Street', 'Main Street', 'George Street', 'King Street', 'Victoria Street'],
+                firstNames: ['James', 'Charlotte', 'Oliver', 'Olivia', 'Jack', 'Amelia', 'William', 'Isla', 'Mason', 'Emily'],
+                lastNames: ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Miller', 'Davis', 'Wilson', 'Moore', 'Taylor'],
+                phoneFormat: '+64 X XXX XXXX',
+                postalFormat: 'XXXX'
+            },
+
+            // Middle East
+            'AE': {
+                name: 'United Arab Emirates',
+                flag: '🇦🇪',
+                states: {
+                    'AD': 'Abu Dhabi', 'AJ': 'Ajman', 'DU': 'Dubai', 'FU': 'Fujairah', 'RA': 'Ras Al Khaimah',
+                    'SH': 'Sharjah', 'UQ': 'Umm Al Quwain'
+                },
+                cities: {
+                    'DU': ['Dubai', 'Deira', 'Bur Dubai', 'Jumeirah', 'Al Barsha', 'Downtown Dubai'],
+                    'AD': ['Abu Dhabi', 'Al Ain', 'Madinat Zayed', 'Ruwais', 'Liwa', 'Ghayathi'],
+                    'SH': ['Sharjah', 'Kalba', 'Khor Fakkan', 'Dibba Al-Hisn', 'Dhaid', 'Mleiha'],
+                    'AJ': ['Ajman', 'Masfout', 'Manama', 'Al Tallah', 'Al Jurf', 'Al Hamidiyah']
+                },
+                streetNames: ['Sheikh Zayed Road', 'Al Wasl Road', 'Jumeirah Road', 'Al Khaleej Road', 'Emirates Road'],
+                firstNames: ['Ahmed', 'Fatima', 'Mohammed', 'Aisha', 'Ali', 'Mariam', 'Omar', 'Layla', 'Khalid', 'Noor'],
+                lastNames: ['Al Mansouri', 'Al Zaabi', 'Al Shamsi', 'Al Mazrouei', 'Al Dhaheri', 'Al Marzouqi', 'Al Blooshi', 'Al Suwaidi'],
+                phoneFormat: '+971 XX XXX XXXX',
+                postalFormat: 'XXXXX'
+            },
+            'SA': {
+                name: 'Saudi Arabia',
+                flag: '🇸🇦',
+                states: {
+                    'RI': 'Riyadh', 'MK': 'Makkah', 'MD': 'Madinah', 'QS': 'Qassim', 'EA': 'Eastern Province',
+                    'AS': 'Asir', 'TB': 'Tabuk', 'HA': 'Hail', 'NB': 'Northern Borders', 'JZ': 'Jazan',
+                    'NJ': 'Najran', 'BH': 'Al Bahah', 'JF': 'Al Jawf'
+                },
+                cities: {
+                    'RI': ['Riyadh', 'Al Kharj', 'Al Majmaah', 'Al Zulfi', 'Shaqra', 'Al Quwayiyah'],
+                    'MK': ['Jeddah', 'Mecca', 'Taif', 'Rabigh', 'Khulais', 'Al Jumum'],
+                    'EA': ['Dammam', 'Dhahran', 'Al Khobar', 'Jubail', 'Al Ahsa', 'Qatif'],
+                    'MD': ['Medina', 'Yanbu', 'Al Ula', 'Khaybar', 'Wadi Al Fara', 'Badr']
+                },
+                streetNames: ['King Fahd Road', 'Prince Sultan Street', 'Al Madinah Road', 'Al Andalus Street', 'Al Urubah Road'],
+                firstNames: ['Abdullah', 'Fatimah', 'Mohammed', 'Aisha', 'Khalid', 'Maryam', 'Ahmed', 'Khadijah', 'Omar', 'Zainab'],
+                lastNames: ['Al Saud', 'Al Rashid', 'Al Ghamdi', 'Al Zahrani', 'Al Harbi', 'Al Otaibi', 'Al Dosari', 'Al Shammari'],
+                phoneFormat: '+966 XX XXX XXXX',
+                postalFormat: 'XXXXX'
+            },
+
+            // Additional Asian Countries
+            'KR': {
+                name: 'South Korea',
+                flag: '🇰🇷',
+                states: {
+                    'SE': 'Seoul', 'BS': 'Busan', 'DG': 'Daegu', 'IC': 'Incheon', 'GJ': 'Gwangju',
+                    'DJ': 'Daejeon', 'UL': 'Ulsan', 'SJ': 'Sejong', 'GG': 'Gyeonggi', 'GW': 'Gangwon',
+                    'CB': 'Chungbuk', 'CN': 'Chungnam', 'JB': 'Jeonbuk', 'JN': 'Jeonnam',
+                    'GB': 'Gyeongbuk', 'GN': 'Gyeongnam', 'JJ': 'Jeju'
+                },
+                cities: {
+                    'SE': ['Seoul', 'Gangnam', 'Gangbuk', 'Gangdong', 'Gangseo', 'Gwanak', 'Gwangjin'],
+                    'BS': ['Busan', 'Haeundae', 'Saha', 'Buk-gu', 'Sasang', 'Yeonje', 'Nam-gu'],
+                    'GG': ['Suwon', 'Yongin', 'Goyang', 'Seongnam', 'Bucheon', 'Ansan', 'Anyang'],
+                    'DG': ['Daegu', 'Jung-gu', 'Dong-gu', 'Seo-gu', 'Nam-gu', 'Buk-gu', 'Suseong-gu']
+                },
+                streetNames: ['강남대로', '테헤란로', '종로', '명동길', '홍대입구', '이태원로', '압구정로'],
+                firstNames: ['김', '이', '박', '최', '정', '강', '조', '윤', '장', '임'],
+                lastNames: ['민수', '지영', '성호', '미영', '현우', '수진', '준호', '은지', '동현', '혜진'],
+                phoneFormat: '+82 XX XXXX XXXX',
+                postalFormat: 'XXXXX'
+            },
+            'TH': {
+                name: 'Thailand',
+                flag: '🇹🇭',
+                states: {
+                    'BKK': 'Bangkok', 'S': 'Samut Prakan', 'NN': 'Nonthaburi', 'PB': 'Pathum Thani', 'AY': 'Phra Nakhon Si Ayutthaya',
+                    'AN': 'Ang Thong', 'LB': 'Loburi', 'SP': 'Sing Buri', 'CL': 'Chai Nat', 'SB': 'Saraburi',
+                    'CB': 'Chon Buri', 'RY': 'Rayong', 'CR': 'Chanthaburi', 'TR': 'Trat', 'CC': 'Chachoengsao',
+                    'PJ': 'Prachin Buri', 'NM': 'Nakhon Nayok', 'SA': 'Sa Kaeo', 'NK': 'Nakhon Ratchasima',
+                    'BL': 'Buri Ram', 'SS': 'Surin', 'SI': 'Si Sa Ket', 'UB': 'Ubon Ratchathani'
+                },
+                cities: {
+                    'BKK': ['Bangkok', 'Thonburi', 'Phra Nakhon', 'Dusit', 'Nong Chok', 'Bang Rak'],
+                    'CM': ['Chiang Mai', 'San Kamphaeng', 'San Sai', 'Doi Saket', 'Mae Rim', 'Saraphi'],
+                    'CB': ['Pattaya', 'Chonburi', 'Laem Chabang', 'Si Racha', 'Sattahip', 'Bang Lamung'],
+                    'PK': ['Phuket', 'Kathu', 'Thalang', 'Mueang Phuket', 'Rawai', 'Patong']
+                },
+                streetNames: ['ถนนสุขุมวิท', 'ถนนพระราม 4', 'ถนนสีลม', 'ถนนเพชรบุรี', 'ถนนรัชดาภิเษก', 'ถนนวิภาวดี'],
+                firstNames: ['สมชาย', 'สมหญิง', 'วิชัย', 'มาลี', 'สมศักดิ์', 'วันทนา', 'ประสิทธิ์', 'สุมาลี', 'นิรันดร', 'วิมล'],
+                lastNames: ['ใจดี', 'รักดี', 'สุขใส', 'เจริญ', 'พัฒนา', 'สมบูรณ์', 'เรืองวิทย์', 'สุขสันต์', 'มั่งมี', 'รุ่งเรือง'],
+                phoneFormat: '+66 XX XXX XXXX',
+                postalFormat: 'XXXXX'
+            },
+
+            // Additional European Countries
+            'RU': {
+                name: 'Russia',
+                flag: '🇷🇺',
+                states: {
+                    'AD': 'Adygea', 'AL': 'Altai', 'BA': 'Bashkortostan', 'BU': 'Buryatia', 'CE': 'Chechnya',
+                    'CU': 'Chuvashia', 'DA': 'Dagestan', 'IN': 'Ingushetia', 'KB': 'Kabardino-Balkaria',
+                    'KL': 'Kalmykia', 'KC': 'Karachay-Cherkessia', 'KR': 'Karelia', 'KO': 'Komi',
+                    'ME': 'Mari El', 'MO': 'Mordovia', 'SA': 'Sakha', 'SE': 'North Ossetia', 'TA': 'Tatarstan',
+                    'TY': 'Tuva', 'UD': 'Udmurtia', 'KK': 'Khakassia', 'MOW': 'Moscow', 'SPE': 'Saint Petersburg'
+                },
+                cities: {
+                    'MOW': ['Moscow', 'Zelenograd', 'Troitsk', 'Shcherbinka', 'Moskovsky', 'Vidnoye'],
+                    'SPE': ['Saint Petersburg', 'Pushkin', 'Kolpino', 'Kronstadt', 'Lomonosov', 'Pavlovsk'],
+                    'NSO': ['Novosibirsk', 'Berdsk', 'Iskitim', 'Ob', 'Krasnoobsk', 'Akademgorodok'],
+                    'EKB': ['Yekaterinburg', 'Verkhnyaya Pyshma', 'Berezovsky', 'Aramil', 'Degtyarsk']
+                },
+                streetNames: ['Красная площадь', 'Невский проспект', 'Тверская улица', 'Арбат', 'Садовое кольцо'],
+                firstNames: ['Александр', 'Елена', 'Сергей', 'Татьяна', 'Дмитрий', 'Ольга', 'Андрей', 'Ирина', 'Владимир', 'Наталья'],
+                lastNames: ['Иванов', 'Смирнов', 'Кузнецов', 'Попов', 'Васильев', 'Петров', 'Соколов', 'Михайлов', 'Новиков', 'Федоров'],
+                phoneFormat: '+7 XXX XXX-XX-XX',
+                postalFormat: 'XXXXXX'
+            },
+            'TR': {
+                name: 'Turkey',
+                flag: '🇹🇷',
+                states: {
+                    'AD': 'Adana', 'AF': 'Afyonkarahisar', 'AG': 'Ağrı', 'AK': 'Aksaray', 'AM': 'Amasya',
+                    'AN': 'Ankara', 'AT': 'Antalya', 'AR': 'Ardahan', 'AY': 'Artvin', 'AI': 'Aydın',
+                    'BL': 'Balıkesir', 'BA': 'Bartın', 'BM': 'Batman', 'BB': 'Bayburt', 'BC': 'Bilecik',
+                    'BG': 'Bingöl', 'BT': 'Bitlis', 'BO': 'Bolu', 'BD': 'Burdur', 'BR': 'Bursa',
+                    'CK': 'Çankırı', 'CI': 'Çorum', 'DN': 'Denizli', 'DY': 'Diyarbakır', 'ED': 'Edirne',
+                    'EL': 'Elazığ', 'EN': 'Erzincan', 'ER': 'Erzurum', 'ES': 'Eskişehir', 'GA': 'Gaziantep',
+                    'GI': 'Giresun', 'GU': 'Gümüşhane', 'HK': 'Hakkâri', 'HT': 'Hatay', 'IG': 'Iğdır',
+                    'IS': 'Isparta', 'IB': 'Istanbul', 'IZ': 'İzmir', 'KH': 'Kahramanmaraş', 'KB': 'Karabük'
+                },
+                cities: {
+                    'IB': ['Istanbul', 'Beyoğlu', 'Kadıköy', 'Üsküdar', 'Beşiktaş', 'Şişli', 'Fatih'],
+                    'AN': ['Ankara', 'Çankaya', 'Keçiören', 'Yenimahalle', 'Mamak', 'Sincan', 'Etimesgut'],
+                    'IZ': ['İzmir', 'Konak', 'Bornova', 'Buca', 'Karşıyaka', 'Bayraklı', 'Gaziemir'],
+                    'AD': ['Adana', 'Seyhan', 'Yüreğir', 'Çukurova', 'Sarıçam', 'Karaisalı', 'Pozantı']
+                },
+                streetNames: ['İstiklal Caddesi', 'Bağdat Caddesi', 'Atatürk Bulvarı', 'Cumhuriyet Caddesi', 'Kızılay Meydanı'],
+                firstNames: ['Mehmet', 'Ayşe', 'Mustafa', 'Fatma', 'Ahmet', 'Emine', 'Ali', 'Hatice', 'Hüseyin', 'Zeynep'],
+                lastNames: ['Yılmaz', 'Kaya', 'Demir', 'Şahin', 'Çelik', 'Aydın', 'Özdemir', 'Arslan', 'Doğan', 'Kılıç'],
+                phoneFormat: '+90 XXX XXX XX XX',
+                postalFormat: 'XXXXX'
+            }
+        };
+
+        // Populate country dropdown on page load
+        function populateCountries() {
+            const countrySelect = document.getElementById('country');
+            const sortedCountries = Object.keys(globalAddressData).sort((a, b) => 
+                globalAddressData[a].name.localeCompare(globalAddressData[b].name)
+            );
+            
+            sortedCountries.forEach(code => {
+                const option = document.createElement('option');
+                option.value = code;
+                option.textContent = `${globalAddressData[code].flag} ${globalAddressData[code].name}`;
+                countrySelect.appendChild(option);
+            });
+
+            // Set US as default
+            countrySelect.value = 'US';
+            updateStates();
+        }
+
+        function updateStates() {
+            const countryCode = document.getElementById('country').value;
+            const stateSelect = document.getElementById('state');
+            const citySelect = document.getElementById('city');
+            
+            // Clear previous options
+            stateSelect.innerHTML = '<option value="">Any State/Province</option>';
+            citySelect.innerHTML = '<option value="">Any City</option>';
+            
+            if (countryCode && globalAddressData[countryCode].states) {
+                const states = globalAddressData[countryCode].states;
+                Object.keys(states).forEach(code => {
+                    const option = document.createElement('option');
+                    option.value = code;
+                    option.textContent = states[code];
+                    stateSelect.appendChild(option);
+                });
+            }
+        }
+
+        function updateCities() {
+            const countryCode = document.getElementById('country').value;
+            const stateCode = document.getElementById('state').value;
+            const citySelect = document.getElementById('city');
+            
+            // Clear previous options
+            citySelect.innerHTML = '<option value="">Any City</option>';
+            
+            if (countryCode && stateCode && globalAddressData[countryCode].cities && globalAddressData[countryCode].cities[stateCode]) {
+                const cities = globalAddressData[countryCode].cities[stateCode];
+                cities.forEach(city => {
+                    const option = document.createElement('option');
+                    option.value = city;
+                    option.textContent = city;
+                    citySelect.appendChild(option);
+                });
+            }
+        }
+
+        function generateAddresses() {
+            const loadingDiv = document.getElementById('loading');
+            const resultsDiv = document.getElementById('results');
+            
+            // Show loading
+            loadingDiv.style.display = 'block';
+            resultsDiv.style.display = 'none';
+            
+            // Simulate loading delay for better UX
+            setTimeout(() => {
+                const countryCode = document.getElementById('country').value;
+                const stateCode = document.getElementById('state').value;
+                const cityName = document.getElementById('city').value;
+                const count = parseInt(document.getElementById('count').value);
+                
+                if (!countryCode) {
+                    alert('Please select a country first!');
+                    loadingDiv.style.display = 'none';
+                    return;
+                }
+                
+                resultsDiv.innerHTML = '';
+                
+                for (let i = 0; i < count; i++) {
+                    const address = generateSingleAddress(countryCode, stateCode, cityName);
+                    const addressCard = createAddressCard(address, i + 1, countryCode);
+                    resultsDiv.appendChild(addressCard);
+                }
+                
+                loadingDiv.style.display = 'none';
+                resultsDiv.style.display = 'block';
+            }, 800);
+        }
+
+        function generateSingleAddress(countryCode, stateCode, cityName) {
+            const countryData = globalAddressData[countryCode];
+            
+            // Generate state
+            let selectedState, selectedStateName;
+            if (stateCode) {
+                selectedState = stateCode;
+                selectedStateName = countryData.states[stateCode];
+            } else {
+                const states = Object.keys(countryData.states);
+                selectedState = states[Math.floor(Math.random() * states.length)];
+                selectedStateName = countryData.states[selectedState];
+            }
+            
+            // Generate city
+            let selectedCity;
+            if (cityName) {
+                selectedCity = cityName;
+            } else if (countryData.cities && countryData.cities[selectedState]) {
+                const cities = countryData.cities[selectedState];
+                selectedCity = cities[Math.floor(Math.random() * cities.length)];
+            } else {
+                // Default cities if no specific cities for the state
+                const defaultCities = ['Central City', 'New Town', 'Old Town', 'Downtown', 'Riverside', 'Highland', 'Parkview'];
+                selectedCity = defaultCities[Math.floor(Math.random() * defaultCities.length)];
+            }
+            
+            // Generate street address
+            const streetNumber = Math.floor(Math.random() * 9999) + 1;
+            const streetName = countryData.streetNames[Math.floor(Math.random() * countryData.streetNames.length)];
+            const streetAddress = `${streetNumber} ${streetName}`;
+            
+            // Generate postal code based on format
+            let postalCode = '';
+            const format = countryData.postalFormat;
+            for (let char of format) {
+                if (char === 'X') {
+                    postalCode += Math.floor(Math.random() * 10);
+                } else if (char === 'A') {
+                    postalCode += String.fromCharCode(65 + Math.floor(Math.random() * 26));
+                } else {
+                    postalCode += char;
+                }
+            }
+            
+            // Generate name
+            const firstName = countryData.firstNames[Math.floor(Math.random() * countryData.firstNames.length)];
+            const lastName = countryData.lastNames[Math.floor(Math.random() * countryData.lastNames.length)];
+            const fullName = `${firstName} ${lastName}`;
+            
+            // Generate phone number
+            let phoneNumber = countryData.phoneFormat;
+            phoneNumber = phoneNumber.replace(/X/g, () => Math.floor(Math.random() * 10));
+            
+            return {
+                name: fullName,
+                street: streetAddress,
+                city: selectedCity,
+                state: selectedState,
+                stateName: selectedStateName,
+                postalCode: postalCode,
+                country: countryData.name,
+                countryCode: countryCode,
+                phoneNumber: phoneNumber,
+                flag: countryData.flag
+            };
+        }
+
+        function createAddressCard(address, index, countryCode) {
+            const card = document.createElement('div');
+            card.className = 'address-card';
+            card.style.marginBottom = '2rem';
+            
+            card.innerHTML = `
+                <h3 style="margin-bottom: 1rem; color: #667eea;">
+                    ${address.flag} Address #${index} - ${address.country}
+                </h3>
+                <div class="address-field">
+                    <span class="field-label">Full Name:</span>
+                    <input type="text" class="field-value" value="${address.name}" readonly>
+                    <button class="copy-btn" onclick="copyToClipboard('${address.name.replace(/'/g, "\\'")}')">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+                <div class="address-field">
+                    <span class="field-label">Street Address:</span>
+                    <input type="text" class="field-value" value="${address.street}" readonly>
+                    <button class="copy-btn" onclick="copyToClipboard('${address.street.replace(/'/g, "\\'")}')">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+                <div class="address-field">
+                    <span class="field-label">City:</span>
+                    <input type="text" class="field-value" value="${address.city}" readonly>
+                    <button class="copy-btn" onclick="copyToClipboard('${address.city.replace(/'/g, "\\'")}')">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+                <div class="address-field">
+                    <span class="field-label">State/Province:</span>
+                    <input type="text" class="field-value" value="${address.stateName}" readonly>
+                    <button class="copy-btn" onclick="copyToClipboard('${address.stateName.replace(/'/g, "\\'")}')">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+                <div class="address-field">
+                    <span class="field-label">Postal Code:</span>
+                    <input type="text" class="field-value" value="${address.postalCode}" readonly>
+                    <button class="copy-btn" onclick="copyToClipboard('${address.postalCode}')">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+                <div class="address-field">
+                    <span class="field-label">Country:</span>
+                    <input type="text" class="field-value" value="${address.country}" readonly>
+                    <button class="copy-btn" onclick="copyToClipboard('${address.country}')">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+                <div class="address-field">
+                    <span class="field-label">Phone Number:</span>
+                    <input type="text" class="field-value" value="${address.phoneNumber}" readonly>
+                    <button class="copy-btn" onclick="copyToClipboard('${address.phoneNumber}')">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+                <button class="copy-btn" style="margin-top: 1rem; padding: 0.75rem 1.5rem; background: #667eea;" onclick="copyFullAddress(${JSON.stringify(address).replace(/"/g, '&quot;')})">
+                    <i class="fas fa-copy"></i> Copy Complete Address
+                </button>
+                <button class="copy-btn" style="margin-top: 0.5rem; margin-left: 1rem; padding: 0.75rem 1.5rem; background: #17a2b8;" onclick="exportJSON(${JSON.stringify(address).replace(/"/g, '&quot;')})">
+                    <i class="fas fa-download"></i> Export as JSON
+                </button>
+            `;
+            
+            return card;
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast();
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showToast();
+            });
+        }
+
+        function copyFullAddress(address) {
+            const fullAddress = `${address.name}\n${address.street}\n${address.city}, ${address.stateName} ${address.postalCode}\n${address.country}\nPhone: ${address.phoneNumber}`;
+            copyToClipboard(fullAddress);
+        }
+
+        function exportJSON(address) {
+            const jsonString = JSON.stringify(address, null, 2);
+            const blob = new Blob([jsonString], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `address_${address.countryCode}_${Date.now()}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showToast('JSON exported successfully!');
+        }
+
+        function showToast(message = 'Copied to clipboard!') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        // Initialize the page
+        window.addEventListener('load', () => {
+            populateCountries();
+            // Generate one US address by default
+            setTimeout(() => {
+                generateAddresses();
+            }, 100);
+        });
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey || e.metaKey) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    generateAddresses();
+                }
+            }
+        });
+
+        // Add search functionality for countries
+        function searchCountries() {
+            const input = document.getElementById('countrySearch');
+            const filter = input.value.toLowerCase();
+            const select = document.getElementById('country');
+            const options = select.getElementsByTagName('option');
+
+            for (let i = 0; i < options.length; i++) {
+                const txtValue = options[i].textContent || options[i].innerText;
+                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                    options[i].style.display = '';
+                } else {
+                    options[i].style.display = 'none';
+                }
+            }
+        }
+
+        // Add bulk export functionality
+        function exportAllAddresses() {
+            const addressCards = document.querySelectorAll('.address-card');
+            const addresses = [];
+            
+            addressCards.forEach((card, index) => {
+                const fields = card.querySelectorAll('.field-value');
+                if (fields.length >= 7) {
+                    addresses.push({
+                        id: index + 1,
+                        name: fields[0].value,
+                        street: fields[1].value,
+                        city: fields[2].value,
+                        state: fields[3].value,
+                        postalCode: fields[4].value,
+                        country: fields[5].value,
+                        phone: fields[6].value,
+                        generated_at: new Date().toISOString()
+                    });
+                }
+            });
+
+            if (addresses.length > 0) {
+                const jsonString = JSON.stringify(addresses, null, 2);
+                const blob = new Blob([jsonString], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `bulk_addresses_${Date.now()}.json`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                showToast(`Exported ${addresses.length} addresses!`);
+            }
+        }
+
+        // Add CSV export functionality
+        function exportCSV() {
+            const addressCards = document.querySelectorAll('.address-card');
+            let csvContent = 'Name,Street,City,State,Postal Code,Country,Phone\n';
+            
+            addressCards.forEach(card => {
+                const fields = card.querySelectorAll('.field-value');
+                if (fields.length >= 7) {
+                    const row = Array.from(fields).map(field => 
+                        `"${field.value.replace(/"/g, '""')}"`
+                    ).join(',');
+                    csvContent += row + '\n';
+                }
+            });
+
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `addresses_${Date.now()}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showToast('CSV exported successfully!');
+        }
+
+        // Add random country selection
+        function selectRandomCountry() {
+            const countrySelect = document.getElementById('country');
+            const options = countrySelect.querySelectorAll('option[value!=""]');
+            const randomOption = options[Math.floor(Math.random() * options.length)];
+            countrySelect.value = randomOption.value;
+            updateStates();
+        }
+
+        // Add address validation simulation
+        function validateAddress(address) {
+            // Simulate address validation
+            const validationScore = Math.floor(Math.random() * 41) + 60; // 60-100%
+            return {
+                isValid: validationScore > 70,
+                score: validationScore,
+                confidence: validationScore > 90 ? 'High' : validationScore > 75 ? 'Medium' : 'Low'
+            };
+        }
+
+        // Enhanced address card with validation info
+        function createEnhancedAddressCard(address, index, countryCode) {
+            const validation = validateAddress(address);
+            const card = createAddressCard(address, index, countryCode);
+            
+            // Add validation info
+            const validationDiv = document.createElement('div');
+            validationDiv.style.marginTop = '1rem';
+            validationDiv.style.padding = '1rem';
+            validationDiv.style.backgroundColor = validation.isValid ? '#d4edda' : '#f8d7da';
+            validationDiv.style.border = `1px solid ${validation.isValid ? '#c3e6cb' : '#f5c6cb'}`;
+            validationDiv.style.borderRadius = '5px';
+            validationDiv.innerHTML = `
+                <small style="color: ${validation.isValid ? '#155724' : '#721c24'};">
+                    <i class="fas fa-${validation.isValid ? 'check-circle' : 'exclamation-triangle'}"></i>
+                    Validation Score: ${validation.score}% (${validation.confidence} Confidence)
+                    ${validation.isValid ? '✓ Address format appears valid' : '⚠ Address may need verification'}
+                </small>
+            `;
+            
+            card.appendChild(validationDiv);
+            return card;
+        }
+    </script>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="disclaimer.html">Disclaimer</a>
+            </div>
+            <div class="copyright">
+                © <span id="year"></span> CyberX Tools
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+                
