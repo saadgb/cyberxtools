@@ -804,6 +804,241 @@
   
 
     <script>
+        // Initialize the countries dropdown when the document is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const countrySelect = document.getElementById('country');
+            for (const countryCode in globalAddressData) {
+                const country = globalAddressData[countryCode];
+                if (country.name) {
+                    const option = document.createElement('option');
+                    option.value = countryCode;
+                    option.textContent = `${country.flag || ''} ${country.name}`;
+                    countrySelect.appendChild(option);
+                }
+            }
+        });
+
+        // Function to update states based on selected country
+        function updateStates() {
+            const countryCode = document.getElementById('country').value;
+            const stateSelect = document.getElementById('state');
+            const citySelect = document.getElementById('city');
+
+            // Clear existing options
+            stateSelect.innerHTML = '<option value="">Any State/Province</option>';
+            citySelect.innerHTML = '<option value="">Any City</option>';
+
+            if (countryCode && globalAddressData[countryCode] && globalAddressData[countryCode].states) {
+                const states = globalAddressData[countryCode].states;
+                for (const stateCode in states) {
+                    const option = document.createElement('option');
+                    option.value = stateCode;
+                    option.textContent = states[stateCode];
+                    stateSelect.appendChild(option);
+                }
+            }
+        }
+
+        // Function to update cities based on selected state
+        function updateCities() {
+            const countryCode = document.getElementById('country').value;
+            const stateCode = document.getElementById('state').value;
+            const citySelect = document.getElementById('city');
+
+            // Clear existing options
+            citySelect.innerHTML = '<option value="">Any City</option>';
+
+            if (countryCode && stateCode && 
+                globalAddressData[countryCode] && 
+                globalAddressData[countryCode].cities && 
+                globalAddressData[countryCode].cities[stateCode]) {
+                const cities = globalAddressData[countryCode].cities[stateCode];
+                cities.forEach(city => {
+                    const option = document.createElement('option');
+                    option.value = city;
+                    option.textContent = city;
+                    citySelect.appendChild(option);
+                });
+            }
+        }
+
+        // Function to generate a random number between min and max
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Function to generate a random street number
+        function generateStreetNumber() {
+            return getRandomInt(1, 9999);
+        }
+
+        // Function to format a phone number based on the country's format
+        function formatPhoneNumber(format) {
+            return format.replace(/X/g, () => getRandomInt(0, 9));
+        }
+
+        // Function to format a postal code based on the country's format
+        function formatPostalCode(format) {
+            return format.replace(/X/g, () => getRandomInt(0, 9))
+                        .replace(/A/g, () => String.fromCharCode(65 + getRandomInt(0, 25)));
+        }
+
+        // Function to copy text to clipboard with fallback
+        async function copyToClipboard(text) {
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    // For HTTPS or localhost
+                    await navigator.clipboard.writeText(text);
+                    showToast();
+                } else {
+                    // Fallback for HTTP
+                    const textArea = document.createElement('textarea');
+                    textArea.value = text;
+                    textArea.style.position = 'fixed';
+                    textArea.style.left = '-999999px';
+                    textArea.style.top = '-999999px';
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
+                        textArea.remove();
+                        showToast();
+                    } catch (error) {
+                        console.error('Error copying text: ', error);
+                        textArea.remove();
+                    }
+                }
+            } catch (error) {
+                console.error('Error copying text: ', error);
+            }
+        }
+
+        // Function to show the toast notification
+        function showToast() {
+            const toast = document.getElementById('toast');
+            if (toast) {
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+        }
+
+        // Function to copy the full address
+        function copyFullAddress(index) {
+            const addressFields = document.querySelectorAll(`[data-address-index="${index}"]`);
+            let fullAddress = '';
+            addressFields.forEach(field => {
+                if (field && field.textContent) {
+                    fullAddress += field.textContent + '\n';
+                }
+            });
+            if (fullAddress) {
+                copyToClipboard(fullAddress.trim());
+            }
+        }
+
+        // Function to generate addresses
+        function generateAddresses() {
+            const countryCode = document.getElementById('country').value;
+            const stateCode = document.getElementById('state').value;
+            const cityValue = document.getElementById('city').value;
+            const count = parseInt(document.getElementById('count').value) || 1;
+
+            if (!countryCode) {
+                alert('Please select a country');
+                return;
+            }
+
+            const countryData = globalAddressData[countryCode];
+            if (!countryData) {
+                alert('Invalid country selected');
+                return;
+            }
+
+            // Show loading indicator
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('results').style.display = 'none';
+
+            // Generate addresses after a small delay to show loading
+            setTimeout(() => {
+                const resultsContainer = document.getElementById('results');
+                resultsContainer.innerHTML = '';
+
+                for (let i = 0; i < count; i++) {
+                    const state = stateCode || Object.keys(countryData.states || {})[getRandomInt(0, Object.keys(countryData.states || {}).length - 1)] || '';
+                    const city = cityValue || (countryData.cities && countryData.cities[state] ? countryData.cities[state][getRandomInt(0, countryData.cities[state].length - 1)] : '');
+                    const streetName = countryData.streetNames ? countryData.streetNames[getRandomInt(0, countryData.streetNames.length - 1)] : 'Main Street';
+                    const firstName = countryData.firstNames ? countryData.firstNames[getRandomInt(0, countryData.firstNames.length - 1)] : 'John';
+                    const lastName = countryData.lastNames ? countryData.lastNames[getRandomInt(0, countryData.lastNames.length - 1)] : 'Doe';
+
+                    const addressCard = document.createElement('div');
+                    addressCard.className = 'address-card';
+                    addressCard.innerHTML = `
+                        <h3 style="margin-bottom: 1rem; color: #667eea;">Generated Address #${i + 1}</h3>
+                        <div class="address-field">
+                            <span class="field-label">Full Name:</span>
+                            <span class="field-value" data-address-index="${i}">${firstName} ${lastName}</span>
+                            <button class="copy-btn" onclick="copyToClipboard('${firstName} ${lastName}')">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <div class="address-field">
+                            <span class="field-label">Street:</span>
+                            <span class="field-value" data-address-index="${i}">${generateStreetNumber()} ${streetName}</span>
+                            <button class="copy-btn" onclick="copyToClipboard('${generateStreetNumber()} ${streetName}')">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <div class="address-field">
+                            <span class="field-label">City:</span>
+                            <span class="field-value" data-address-index="${i}">${city}</span>
+                            <button class="copy-btn" onclick="copyToClipboard('${city}')">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <div class="address-field">
+                            <span class="field-label">State:</span>
+                            <span class="field-value" data-address-index="${i}">${countryData.states ? countryData.states[state] : ''}</span>
+                            <button class="copy-btn" onclick="copyToClipboard('${countryData.states ? countryData.states[state] : ''}')">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <div class="address-field">
+                            <span class="field-label">Country:</span>
+                            <span class="field-value" data-address-index="${i}">${countryData.name}</span>
+                            <button class="copy-btn" onclick="copyToClipboard('${countryData.name}')">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <div class="address-field">
+                            <span class="field-label">Postal Code:</span>
+                            <span class="field-value" data-address-index="${i}">${formatPostalCode(countryData.postalFormat || 'XXXXX')}</span>
+                            <button class="copy-btn" onclick="copyToClipboard('${formatPostalCode(countryData.postalFormat || 'XXXXX')}')">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <div class="address-field">
+                            <span class="field-label">Phone:</span>
+                            <span class="field-value" data-address-index="${i}">${formatPhoneNumber(countryData.phoneFormat || '+1 XXX-XXX-XXXX')}</span>
+                            <button class="copy-btn" onclick="copyToClipboard('${formatPhoneNumber(countryData.phoneFormat || '+1 XXX-XXX-XXXX')}')">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <button class="copy-btn" style="width: 100%; margin-top: 1rem;" onclick="copyFullAddress(${i})">
+                            <i class="fas fa-copy"></i> Copy Full Address
+                        </button>
+                    `;
+                    resultsContainer.appendChild(addressCard);
+                }
+
+                // Hide loading and show results
+                document.getElementById('loading').style.display = 'none';
+                resultsContainer.style.display = 'block';
+            }, 500);
+        }
+
         // Comprehensive global address data
         const globalAddressData = {
             // North America
