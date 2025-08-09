@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://cyberxtools.com/sitemap.xml
-
